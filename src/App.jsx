@@ -12,7 +12,7 @@ function App() {
   
   const Content = () => {
     return (
-      <div>
+      <div className="">
         <div className="p-3">"{quote.quote}"</div>
         <div className="flex flex-row-reverse w-full text-xl">
           -{quote.character}
@@ -37,7 +37,7 @@ function App() {
     <div className="bg-gray-400 h-screen">
       <NavBar />
       <div className="text-2xl grid place-content-center h-5/6  px-5">
-        <div>
+        <div className="md:mx-72">
           {displayContent  ? <Content/> : null}
           <button
             className="px-2 py-1 bg-slate-800 text-white rounded"
