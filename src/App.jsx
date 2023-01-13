@@ -64,7 +64,7 @@ function App() {
   };
 
   return (
-    <div className="bg-gray-400 h-screen">
+    <div className="bg-gray-400 h-screen overflow-hidden">
       <NavBar quote={handleSearch} display={setdisplayContent}/>
       <div className="text-2xl grid place-content-center h-5/6  px-5">
         <div className="md:mx-72">{displayContent ? <Content /> : null}</div>

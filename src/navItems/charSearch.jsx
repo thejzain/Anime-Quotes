@@ -32,14 +32,14 @@ export default function CharSearch(prop) {
         onClick={() => handleclick(char.character, char.anime, char.quote)}
         className="bg-slate-300 m-3 p-2 rounded-xl shadow-xl"
       >
-        <div className=" ">{char.quote}</div>
+        <div className=" md:w-96">{char.quote}</div>
         <div className="flex flex-row-reverse">-{char.character}</div>
       </div>
     );
   });
   return (
     <div>
-      <div className="p-2 w-60">
+      <div className="p-2 w-60 h-full">
         <input
           name="charkey"
           className="rounded-md h-8"
@@ -55,7 +55,7 @@ export default function CharSearch(prop) {
           <AiOutlineSearch />
         </button>
       </div>
-      <div className="">{list}</div>
+      <div className="max-h-[78vh] overflow-auto ">{list}</div>
     </div>
   );
 }

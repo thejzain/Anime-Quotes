@@ -26,16 +26,16 @@ export default function AnimeSearch(prop) {
       <div
         key={anime._id}
         onClick={() => handleclick(anime.character, anime.anime, anime.quote)}
-        className="bg-slate-300 m-3 p-2 rounded-xl shadow-xl"
+        className="bg-slate-300 m-3 p-2 rounded-xl shadow-xl "
       >
-        <div className=" ">{anime.quote}</div>
+        <div className=" w-96">{anime.quote}</div>
         <div className="flex flex-row-reverse">-{anime.character}</div>
       </div>
     );
   });
   return (
     <div>
-      <div className="p-2">
+      <div className="p-2 ">
         <input
           placeholder=" Anime Name"
           className="h-8 rounded-md"
@@ -50,7 +50,7 @@ export default function AnimeSearch(prop) {
           <AiOutlineSearch />
         </button>
       </div>
-      <div>{list}</div>
+      <div className="max-h-[78vh] overflow-auto ">{list}</div>
     </div>
   );
 }
