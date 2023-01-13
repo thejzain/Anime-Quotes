@@ -2,25 +2,36 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { useState } from "react";
 import axios from "axios";
 
-export default function CharSearch() {
+export default function CharSearch(prop) {
   const [char, setChar] = useState([]);
   const [search, setSearch] = useState([]);
   const handleChange = (evt) => {
     const value = evt.target.value;
     setSearch({ [evt.target.name]: value });
   };
-  const getChar = () => {
-    axios
+  const getChar = async () => {
+    await axios
       .get(
         "https://animechan.vercel.app/api/quotes/character?name=" +
           search.charkey
       )
+      .catch((err) => console.log("error"))
       .then((res) => setChar(res.data));
   };
 
-  const list = char.map((char, key) => {
+  const list = char.map((char) => {
+    const handleclick = (character, anime, quote) => {
+      prop.quote(anime, character, quote);
+      prop.display(true);
+    };
     return (
-      <div key={key} className="bg-slate-300 m-3 p-2 rounded-xl shadow-xl">
+      <div
+        key={char._id}
+        id={char._id}
+        value={char}
+        onClick={() => handleclick(char.character, char.anime, char.quote)}
+        className="bg-slate-300 m-3 p-2 rounded-xl shadow-xl"
+      >
         <div className=" ">{char.quote}</div>
         <div className="flex flex-row-reverse">-{char.character}</div>
       </div>
