@@ -33,7 +33,7 @@ export default function NavBar() {
 
   return (
     <nav className=" flex flex-row-reverse ">
-      <div className="p-5 rounded-xl bg-gray-300 m-5 shadow-xl absolute">
+      <div className="p-5 rounded-xl bg-gray-200 m-5 shadow-xl absolute">
         <div
           onClick={buttonhandler}
           className="w-full flex flex-row-reverse text-4xl"
@@ -41,9 +41,9 @@ export default function NavBar() {
           <AiOutlineMenu />
         </div>
         <div className={menuButton.state}>
-          <div className="grid grid-cols-2  w-52 text-center gap-2   rounded-lg" onChange={radiohandle}>
-            <div className=""><label className=""><input type={"radio"} id="char" name="select" value={"char"} className="appearance-none peer"/><div className="peer-checked:bg-blue-300 rounded relative -top-5">Charecter</div></label></div>
-            <div><label className=""><input type={"radio"} id="anim" name="select" value={"anim"} className="appearance-none peer"/><div className="peer-checked:bg-blue-300 rounded relative -top-5">Anime</div></label></div>
+          <div className="grid grid-cols-2  w-52 text-center gap-2   rounded-lg " onChange={radiohandle}>
+            <div><label className=""><input type={"radio"} id="char" name="select" value={"char"} className="appearance-none peer"/><div className="shadow-2xl peer-checked:bg-blue-300 rounded relative -top-5">Charecter</div></label></div>
+            <div><label className=""><input type={"radio"} id="anim" name="select" value={"anim"} className="appearance-none peer"/><div className="shadow-2xl peer-checked:bg-blue-300 rounded relative -top-5">Anime</div></label></div>
           </div>
           {char ? <CharSearch/> : <AnimeSearch/>}
         </div>
