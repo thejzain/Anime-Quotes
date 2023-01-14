@@ -30,8 +30,8 @@ export default function NavBar(prop) {
   };
 
   return (
-    <nav className=" flex flex-row-reverse ">
-      <div className="p-5 rounded-xl bg-gray-200 m-5 shadow-xl absolute ">
+    <nav className=" flex flex-row-reverse font-thin">
+      <div className="p-5 rounded-xl  m-5 shadow-xl absolute px-4 py-3  text-white  bg-white  bg-opacity-20 backdrop-blur-md drop-shadow-lg">
         <div
           onClick={buttonhandler}
           className="w-full flex flex-row-reverse text-4xl"
