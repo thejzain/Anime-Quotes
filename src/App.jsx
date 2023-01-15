@@ -3,7 +3,6 @@ import NavBar from "./navBar";
 import axios from "axios";
 import { toPng, toSvg } from "html-to-image";
 
-
 function App() {
   const [quote, setQoutes] = useState({
     anime: "",
@@ -11,6 +10,7 @@ function App() {
     quote: "",
   });
   const [displayContent, setdisplayContent] = useState(false);
+  const [loading, setLoading] =useState(false);
   const download = useRef(null);
   const date = new Date();
   const Content = () => {
@@ -22,25 +22,28 @@ function App() {
         >
           <div className="absolute inset-0 bg-white  bg-opacity-20 backdrop-blur-md rounded-xl drop-shadow-lg"></div>
           <div className="relative ">
-            <div className="p-3 ">"{quote.quote}"</div>
-            <div className="flex flex-row-reverse w-full text-xl">
+            <div className="p-3 text-base md:text-xl max-w-xl">"{quote.quote}"</div>
+            <div className="flex flex-row-reverse w-full text-base md:text-lg">
               -{quote.character}
             </div>
           </div>
-          
         </div>
       </div>
     );
   };
 
   const Quotegenerate = async () => {
+    setLoading(true)
     await axios.get("https://animechan.vercel.app/api/random").then((res) => {
       setQoutes({
         anime: res.data.anime,
         character: res.data.character,
         quote: res.data.quote,
       });
+      
     });
+    setLoading(false)
+    
     setdisplayContent(true);
   };
 
@@ -68,6 +71,30 @@ function App() {
     setQoutes({ character: character, anime: anime, quote: quote });
   };
 
+  const Loading = () => {
+    return (
+      <button
+        disabled
+        className="text-sm inset-0 ring-1 ring-gray-400 px-8 py-3  text-white  bg-white opacity-40  bg-opacity-10 backdrop-blur-md rounded-full drop-shadow-lg"
+        type="submit"
+      >
+        Loading....
+      </button>
+    );
+  };
+
+  const Generate = () => {
+    return (
+      <button
+        className="ring-1 ring-white px-4 py-3  text-white  bg-white  bg-opacity-20 backdrop-blur-md rounded-full drop-shadow-lg"
+        type="submit"
+        onClick={Quotegenerate}
+      >
+        Generate
+      </button>
+    );
+  };
+
   return (
     <div
       className="h-screen "
@@ -81,14 +108,8 @@ function App() {
         <div className="md:mx-72">{displayContent ? <Content /> : null}</div>
       </div>
       <div className="w-screen grid grid-cols-2 place-content-center font-thin text-2xl gap-4">
-        <div className="flex flex-row-reverse">
-          <button
-            className="ring-1 ring-white px-4 py-3  text-white  bg-white  bg-opacity-20 backdrop-blur-md rounded-full drop-shadow-lg"
-            type="submit"
-            onClick={Quotegenerate}
-          >
-            Generate
-          </button>
+        <div className="relative flex flex-row-reverse">
+          {loading ? <Loading /> : <Generate/>}
         </div>
         <div className="">
           <button

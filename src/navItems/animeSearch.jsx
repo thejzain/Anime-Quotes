@@ -26,7 +26,7 @@ export default function AnimeSearch(prop) {
       <div
         key={anime._id}
         onClick={() => handleclick(anime.character, anime.anime, anime.quote)}
-        className="bg-slate-200 bg-opacity-20 backdrop-blur-md drop-shadow-lg m-3 p-2 rounded-xl shadow-xl "
+        className="bg-slate-200 bg-opacity-20 backdrop-blur-md drop-shadow-lg m-3 p-2 rounded-xl shadow-xl active:translate-y-1 active:backdrop-blur-none active:bg-opacity-40"
       >
         <div className=" md:w-96 p2">{anime.quote}</div>
         <div className="flex flex-row-reverse">-{anime.character}</div>

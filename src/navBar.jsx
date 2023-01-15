@@ -1,5 +1,5 @@
 import { AiOutlineMenu } from "react-icons/ai";
-import {  useState } from "react";
+import { useState } from "react";
 import CharSearch from "./navItems/charSearch";
 import AnimeSearch from "./navItems/animeSearch";
 
@@ -30,8 +30,8 @@ export default function NavBar(prop) {
   };
 
   return (
-    <nav className=" flex flex-row-reverse font-thin">
-      <div className="p-5 rounded-xl  m-5 shadow-xl absolute px-4 py-3  text-white  bg-white  bg-opacity-20 backdrop-blur-md drop-shadow-lg">
+    <nav className=" flex flex-row-reverse font-thin ">
+      <div className="p-5 rounded-xl  m-5 shadow-xl absolute z-10 px-4 py-3  text-white  bg-white  bg-opacity-20 backdrop-blur-md drop-shadow-lg ">
         <div
           onClick={buttonhandler}
           className="w-full flex flex-row-reverse text-4xl"
