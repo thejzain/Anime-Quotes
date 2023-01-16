@@ -30,7 +30,7 @@ export default function CharSearch(prop) {
         id={char._id}
         value={char}
         onClick={() => handleclick(char.character, char.anime, char.quote)}
-        className="bg-slate-200 bg-opacity-20 backdrop-blur-md drop-shadow-lg m-3 p-2 rounded-xl shadow-xl  active:translate-y-1 active:backdrop-blur-none active:bg-opacity-40"
+        className="bg-slate-200 bg-opacity-20 backdrop-blur-md drop-shadow-lg m-3 p-2 rounded-xl shadow-xl  active:translate-y-1 active:backdrop-blur-none active:bg-opacity-40 transition-all"
       >
         <div className=" md:w-96 p-2">{char.quote}</div>
         <div className="flex flex-row-reverse">-{char.character}</div>
